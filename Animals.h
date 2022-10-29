@@ -19,6 +19,7 @@ public:
 
 	virtual void set_poroda(string) = 0;
 	virtual void  set_okras(string) = 0;
+	
 
 
 

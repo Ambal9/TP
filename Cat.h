@@ -15,6 +15,15 @@ public:
 	virtual void  set_okras(string) override;
 	void get_vladelec(string);
 	void get_klichka(string);
+	Cat()
+	{
+		poroda = '0';
+		okras = '0';
+		vladelec='0';
+		klichka='0';
+	}
+
+	
 
 
 };

@@ -51,4 +51,15 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="fish.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="bird.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="cat.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

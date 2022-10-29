@@ -22,7 +22,7 @@ int main()
 	
 
 
-	while (i != 6)
+	while (i != 13)
 	{
 
 		menu(hConsole, i);
@@ -31,7 +31,7 @@ int main()
 			flag = _getch();
 			if (flag == 's')
 			{
-				if (i < 5)
+				if (i < 12)
 					i++;
 				menu(hConsole, i);
 			}
@@ -116,7 +116,42 @@ int main()
 				system("pause");
 				break;
 
+
+			case 6:
+				keeper.save_fish();
+				system("pause");
+				break;
+			case 7:
+
+				keeper.read_fish();
+				keeper.info_fish();
+				system("pause");
+
+				break;
+			case 8:
+				keeper.save_bird();
+				system("pause");
+				break;
+			case 9:
+
+				keeper.read_bird();
+				keeper.info_bird();
+				system("pause");
+
+				break;
+			case 10:
+				keeper.save_cat();
+				system("pause");
+				break;
+			case 11:
+
+				keeper.read_cat();
+				keeper.info_cat();
+				system("pause");
+
+				break;
 			}
+			
 			system("cls");
 		}
 	}
@@ -148,7 +183,24 @@ int main()
 		if (flag == 5) SetConsoleTextAttribute(con, b);
 		else SetConsoleTextAttribute(con, w);
 		cout << "6.Вывод информации о котах" << endl;
-
+		if (flag == 6) SetConsoleTextAttribute(con, b);
+		else SetConsoleTextAttribute(con, w);
+		cout << "7.Сохранение списка рыб в файл" << endl;
+		if (flag == 7) SetConsoleTextAttribute(con, b);
+		else SetConsoleTextAttribute(con, w);
+		cout << "8.Загрузка списка рыб из файла" << endl;
+		if (flag == 8) SetConsoleTextAttribute(con, b);
+		else SetConsoleTextAttribute(con, w);
+		cout << "9.Сохранение списка Птиц в файл" << endl;
+		if (flag == 9) SetConsoleTextAttribute(con, b);
+		else SetConsoleTextAttribute(con, w);
+		cout << "10.Загрузка списка Птиц из файла" << endl;
+		if (flag == 10) SetConsoleTextAttribute(con, b);
+		else SetConsoleTextAttribute(con, w);
+		cout << "11.Сохранение списка котов в файл" << endl;
+		if (flag == 11) SetConsoleTextAttribute(con, b);
+		else SetConsoleTextAttribute(con, w);
+		cout << "12.Загрузка списка Котов из файла" << endl;
 
 
 

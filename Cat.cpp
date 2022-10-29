@@ -1,5 +1,5 @@
 #include "Cat.h"
-
+#include "Animals.h"
 string Cat::get_poroda()
 {
 	return this->poroda;
