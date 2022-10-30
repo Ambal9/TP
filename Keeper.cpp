@@ -76,14 +76,14 @@ void Keeper::info_fish()
 		for (size = 0; size <= sizefish - 1; size++)
 		{
 			
-			cout << "Рыба " << size + 1 << ": " << f[size].get_poroda() << ", " << f[size].get_okras() << ", " << f[size].get_pitanie() << endl;
+			cout << "Рыба " << size + 1 << ": Порода: " << f[size].get_poroda() << ", Окрас: " << f[size].get_okras() << ", Тип питания: " << f[size].get_pitanie() << endl;
 		}
 	}
 	else {
 		for (size = 0; size <= sizefish - 2; size++)
 		{
 			
-			cout << "Рыба " << size + 1 << ": " << f[size].get_poroda() << ", " << f[size].get_okras() << ", " << f[size].get_pitanie() << endl;
+			cout << "Рыба " << size + 1 << ": Порода: " << f[size].get_poroda() << ", Окрас: " << f[size].get_okras() << ", Тип питания: " << f[size].get_pitanie() << endl;
 		}
 	}
 }
@@ -92,11 +92,11 @@ void Keeper::info_bird()
 	if (sizebird == 1)
 	{
 		for(size=0;size<=sizebird-1;size++)
-			cout << "Птица " << size + 1 << ": " << b[size].get_poroda() << ", " << b[size].get_okras() << ", " << b[size].get_pitanie() << ", " << b[size].get_obitanie() << endl;
+			cout << "Птица " << size + 1 << ": Порода: " << b[size].get_poroda() << ", Окрас: " << b[size].get_okras() << ", Питание: " << b[size].get_pitanie() << ", Обитание: " << b[size].get_obitanie() << endl;
 	}
 	for (size = 0; size <= sizebird - 2; size++)
 	{
-		cout << "Птица " << size + 1 << ": " << b[size].get_poroda() << ", " << b[size].get_okras() << ", " << b[size].get_pitanie() << ", " << b[size].get_obitanie() << endl;
+		cout << "Птица " << size + 1 << ": Порода: " << b[size].get_poroda() << ", Окрас: " << b[size].get_okras() << ", Питание: " << b[size].get_pitanie() << ", Обитание: " << b[size].get_obitanie() << endl;
 	}
 
 }
@@ -105,11 +105,11 @@ void Keeper::info_cat()
 	if (sizecat == 1)
 	{
 		for (size = 0; size <= sizecat - 1; size++)
-			cout << "Кот " << size + 1 << ": " << c[size].get_poroda() << ", " << c[size].get_okras() << ", " << c[size].get_vladelec() << ", " << c[size].get_klichka() << endl;
+			cout << "Кот " << size + 1 << ": Порода: "<< c[size].get_poroda() << ", Окрас: " << c[size].get_okras() << ", Владелец: " << c[size].get_vladelec() << ", Кличка: " << c[size].get_klichka() << endl;
 	}
 	for (size = 0; size <= sizecat - 2; size++)
 	{
-		cout << "Кот " << size + 1 << ": " << c[size].get_poroda() << ", " << c[size].get_okras() << ", " << c[size].get_vladelec() << ", " << c[size].get_klichka() << endl;
+		cout << "Кот " << size + 1 << ": Порода: " << c[size].get_poroda() << ", Окрас: " << c[size].get_okras() << ", Владелец: " << c[size].get_vladelec() << ", Кличка: " << c[size].get_klichka() << endl;
 	}
 
 }
@@ -124,9 +124,9 @@ void Keeper::save_fish()
 		cout << "Ошибка открытия файла" << endl;
 
 	}
-	for(size=0;size<=sizefish-2;size++)
+	for(size=size_f-1;size<=sizefish-2;size++)
 	fout.write((char*)&f[size], sizeof(Fish));
-
+	size_f = sizefish;
 	fout.close();
 }
 
@@ -175,9 +175,9 @@ void Keeper::save_bird()
 		cout << "Ошибка открытия файла" << endl;
 
 	}
-	for (size = 0; size <= sizebird - 2; size++)
+	for (size = size_b-1; size <= sizebird - 2; size++)
 		fout.write((char*)&b[size], sizeof(Bird));
-
+	size_b = sizebird;
 	fout.close();
 }
 
@@ -228,9 +228,9 @@ void Keeper::save_cat()
 		cout << "Ошибка открытия файла" << endl;
 
 	}
-	for (size = 0; size <= sizecat - 2; size++)
+	for (size = size_c-1; size <= sizecat - 2; size++)
 		fout.write((char*)&c[size], sizeof(Cat));
-
+	size_c = sizecat;
 	fout.close();
 }
 
@@ -269,3 +269,63 @@ void Keeper::read_cat()
 
 	fin.close();
 }
+void Keeper::del_fish()
+{
+	if (sizefish > 1)
+	{
+		Fish* p = new Fish[sizefish];
+		for (size = 0; size <= sizefish - 2; size++)
+		{
+			p[size] = f[size];
+		}
+		sizefish--;
+		delete[] f;
+		f = new Fish[sizefish];
+		for (size = 0; size <= sizefish - 2; size++)
+		{
+			f[size] = p[size];
+		}
+		delete[] p;
+	}
+}
+void Keeper::del_bird()
+{
+	if (sizebird > 1)
+	{
+		Bird* p = new Bird[sizebird];
+		for (size = 0; size <= sizebird - 2; size++)
+		{
+			p[size] = b[size];
+		}
+		sizebird--;
+		delete[] b;
+		b = new Bird[sizebird];
+		for (size = 0; size <= sizebird - 2; size++)
+		{
+			b[size] = p[size];
+		}
+		delete[] p;
+	}
+}
+void Keeper::del_cat()
+{
+	if (sizecat > 1)
+	{
+		Cat* p = new Cat[sizecat];
+		for (size = 0; size <= sizecat - 2; size++)
+		{
+			p[size] = c[size];
+		}
+		sizecat--;
+		delete[] c;
+		c = new Cat[sizecat];
+		for (size = 0; size <= sizecat - 2; size++)
+		{
+			c[size] = p[size];
+		}
+		delete[] p;
+	}
+
+}
+
+

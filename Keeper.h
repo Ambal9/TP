@@ -8,18 +8,21 @@ using namespace std;
 class Keeper
 {
 private:
-	
-	int sizefish = 1,sizebird = 1,sizecat = 1;
 	int size;
-	Fish* f=new Bird[sizebird];
-	Bird* b= new Bird[sizebird];
-	Cat* c= new Cat[sizecat];
+	int size_f=1;
+	int size_b=1;
+	int size_c=1;
+	int sizefish = 1, sizebird = 1, sizecat = 1;
+	Fish* f = new Fish[sizefish];
+	Bird* b = new Bird[sizebird];
+	Cat* c = new Cat[sizecat];
 	Fish q;
 	Bird w;
 	Cat e;
 	
 
 public:
+	
 	void add_fish(Fish);
 	void add_bird(Bird);
 	void add_cat(Cat);
@@ -32,6 +35,11 @@ public:
 	void read_bird();
 	void save_cat();
 	void read_cat();
+	void del_fish();
+	void del_bird();
+	void del_cat();
+	
+
 	~Keeper()
 	{
 		delete[] f;

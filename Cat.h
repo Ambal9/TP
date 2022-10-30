@@ -22,6 +22,13 @@ public:
 		vladelec='0';
 		klichka='0';
 	}
+	Cat(const Cat& cat) 
+	{
+		poroda = cat.poroda;
+		okras = cat.okras;
+		vladelec = cat.vladelec;
+		klichka = cat.klichka;
+	}
 
 	
 

@@ -22,7 +22,7 @@ int main()
 	
 
 
-	while (i != 13)
+	while (i != 15)
 	{
 
 		menu(hConsole, i);
@@ -31,7 +31,7 @@ int main()
 			flag = _getch();
 			if (flag == 's')
 			{
-				if (i < 12)
+				if (i < 14)
 					i++;
 				menu(hConsole, i);
 			}
@@ -67,7 +67,7 @@ int main()
 				cout << "Введите окрас Птицы:" << endl;
 				getline(cin, vvod);
 				bird.set_okras(vvod);
-				cout << "Введите тип питания Птицы:" << endl;
+				cout << "Введите чем питается Птица:" << endl;
 				getline(cin, vvod);
 				bird.set_pitanie(vvod);
 				cout << "Введите обитание Птицы:" << endl;
@@ -97,56 +97,67 @@ int main()
 				system("pause");
 
 				break;
+
 			case 3:
-				keeper.info_fish();
-				system("pause");
-
-
+				keeper.del_fish();
 
 				break;
 			case 4:
-				keeper.info_bird();
-				system("pause");
-
-
+				keeper.del_bird();
 
 				break;
 			case 5:
-				keeper.info_cat();
-				system("pause");
-				break;
+				keeper.del_cat();
 
+				break;
 
 			case 6:
-				keeper.save_fish();
-				system("pause");
-				break;
-			case 7:
-
-				keeper.read_fish();
 				keeper.info_fish();
 				system("pause");
 
-				break;
-			case 8:
-				keeper.save_bird();
-				system("pause");
-				break;
-			case 9:
 
-				keeper.read_bird();
+
+				break;
+			case 7:
 				keeper.info_bird();
 				system("pause");
 
+
+
+				break;
+			case 8:
+				keeper.info_cat();
+				system("pause");
+				break;
+
+
+			case 9:
+				keeper.save_fish();
+				system("pause");
 				break;
 			case 10:
+
+				keeper.read_fish();
+				system("pause");
+
+				break;
+			case 11:
+				keeper.save_bird();
+				system("pause");
+				break;
+			case 12:
+
+				keeper.read_bird();
+				system("pause");
+
+				break;
+			case 13:
 				keeper.save_cat();
 				system("pause");
 				break;
-			case 11:
+			case 14:
 
 				keeper.read_cat();
-				keeper.info_cat();
 				system("pause");
 
 				break;
@@ -176,31 +187,40 @@ int main()
 		if (flag == 3) SetConsoleTextAttribute(con, b);
 
 		else SetConsoleTextAttribute(con, w);
-		cout << "4.Вывод информации о рыбах" << endl;
+		cout << "4.Удаление последней рыбы" << endl;
 		if (flag == 4) SetConsoleTextAttribute(con, b);
 		else SetConsoleTextAttribute(con, w);
-		cout << "5.Вывод информации о птицах" << endl;
+		cout << "5.удаление последней Птицы" << endl;
 		if (flag == 5) SetConsoleTextAttribute(con, b);
 		else SetConsoleTextAttribute(con, w);
-		cout << "6.Вывод информации о котах" << endl;
+		cout << "6.удаление последнего кота" << endl;
 		if (flag == 6) SetConsoleTextAttribute(con, b);
 		else SetConsoleTextAttribute(con, w);
-		cout << "7.Сохранение списка рыб в файл" << endl;
+		cout << "7.Вывод информации о рыбах" << endl;
 		if (flag == 7) SetConsoleTextAttribute(con, b);
 		else SetConsoleTextAttribute(con, w);
-		cout << "8.Загрузка списка рыб из файла" << endl;
+		cout << "8.Вывод информации о Птицах" << endl;
 		if (flag == 8) SetConsoleTextAttribute(con, b);
 		else SetConsoleTextAttribute(con, w);
-		cout << "9.Сохранение списка Птиц в файл" << endl;
+		cout << "9.Вывод информации о котах" << endl;
 		if (flag == 9) SetConsoleTextAttribute(con, b);
 		else SetConsoleTextAttribute(con, w);
-		cout << "10.Загрузка списка Птиц из файла" << endl;
+		cout << "10.Сохранение списка рыб в файл" << endl;
 		if (flag == 10) SetConsoleTextAttribute(con, b);
 		else SetConsoleTextAttribute(con, w);
-		cout << "11.Сохранение списка котов в файл" << endl;
+		cout << "11.Загрузка списка о рыбах из файл" << endl;
 		if (flag == 11) SetConsoleTextAttribute(con, b);
 		else SetConsoleTextAttribute(con, w);
-		cout << "12.Загрузка списка Котов из файла" << endl;
+		cout << "12.Сохранение списка Птиц в файл" << endl;
+		if (flag == 12) SetConsoleTextAttribute(con, b);
+		else SetConsoleTextAttribute(con, w);
+		cout << "13.Загрузка списка о Птицах из файл" << endl;
+		if (flag == 13) SetConsoleTextAttribute(con, b);
+		else SetConsoleTextAttribute(con, w);
+		cout << "14.Сохранение списка Котов в файл" << endl;
+		if (flag == 14) SetConsoleTextAttribute(con, b);
+		else SetConsoleTextAttribute(con, w);
+		cout << "15.Загрузка списка о Котах из файл" << endl;
 
 
 

@@ -13,6 +13,12 @@ public:
 		okras = '0';
 		pitanie = '0';
 	}
+	Fish(const Fish& fish)
+	{
+		poroda = fish.poroda;
+		okras = fish.okras;
+		pitanie = fish.pitanie;
+	}
 	string get_poroda() override;
 	string get_okras() override;
 	string get_pitanie();
